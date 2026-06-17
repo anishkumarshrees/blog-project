@@ -15,9 +15,7 @@ function Card({blog}){
     >
       {/* Image */}
       <img
-        src={`http://localhost:3000${blog.image}`}
-  alt={blog.title}
-  
+       src={blog.imageUrl} alt={blog.title}
         style={{
           width: "100%",
           height: "200px",
