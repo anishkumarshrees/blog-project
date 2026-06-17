@@ -1,0 +1,78 @@
+
+
+function Card({blog}){
+    return (
+        <>
+       <div
+      style={{
+        maxWidth: "350px",
+        backgroundColor: "#fff",
+        borderRadius: "12px",
+        boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+        overflow: "hidden",
+        fontFamily: "Arial",
+      }}
+    >
+      {/* Image */}
+      <img
+        src={`http://localhost:3000${blog.image}`}
+  alt={blog.title}
+  
+        style={{
+          width: "100%",
+          height: "200px",
+          objectFit: "cover",
+        }}
+      />
+
+      {/* Content */}
+      <div style={{ padding: "15px" }}>
+        
+        {/* Category */}
+        <div
+          style={{
+            color: "blue",
+            fontSize: "12px",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+          }}
+        >
+            {blog.title}
+        </div>
+
+        {/* Title */}
+        <h2 style={{ margin: "10px 0", fontSize: "20px" }}>
+          {blog.subtitle}
+        </h2>
+
+        {/* Description */}
+        <p style={{ color: "#555", fontSize: "14px" }}>
+         {blog.discription}
+        </p>
+
+        {/* Footer */}
+       
+
+        {/* Button */}
+        <button
+          style={{
+            marginTop: "15px",
+            width: "100%",
+            padding: "10px",
+            backgroundColor: "#2563eb",
+            color: "white",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+          }}
+        >
+          Read More
+        </button>
+      </div>
+    </div>
+        </>
+    )
+
+}
+
+export default Card
