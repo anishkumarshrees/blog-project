@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 function Navbar(){
@@ -12,7 +13,7 @@ function Navbar(){
 
       {/* Links */}
       <ul className="flex gap-6 text-gray-700 font-medium">
-        <li className="hover:text-blue-600 cursor-pointer">Home</li>
+        <Link to='./' className="hover:text-blue-600 cursor-pointer">Home</Link>
         <li className="hover:text-blue-600 cursor-pointer">Blogs</li>
         <li className="hover:text-blue-600 cursor-pointer">About</li>
         <li className="hover:text-blue-600 cursor-pointer">Contact</li>

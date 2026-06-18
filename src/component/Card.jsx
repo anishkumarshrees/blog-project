@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom"
+
 
 
 function Card({blog}){
     return (
         <>
+       
        <div
       style={{
         maxWidth: "350px",
@@ -13,15 +16,13 @@ function Card({blog}){
         fontFamily: "Arial",
       }}
     >
-      {/* Image */}
-      <img
-       src={blog.imageUrl} alt={blog.title}
+   
+       <img src={blog.imageUrl} 
         style={{
           width: "100%",
-          height: "200px",
-          objectFit: "cover",
-        }}
-      />
+          height: "500px",
+          objectFit: "cover"
+        }}/>
 
       {/* Content */}
       <div style={{ padding: "15px" }}>
@@ -45,10 +46,13 @@ function Card({blog}){
 
         {/* Description */}
         <p style={{ color: "#555", fontSize: "14px" }}>
-         {blog.discription}
+          
+         {blog.description}
         </p>
 
-        {/* Footer */}
+         
+          
+       
        
 
         {/* Button */}
@@ -64,10 +68,12 @@ function Card({blog}){
             cursor: "pointer",
           }}
         >
-          Read More
+          <Link to={`/blog/${blog._id}`}>Read More</Link>
+          
         </button>
       </div>
     </div>
+   
         </>
     )
 
