@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 
 function Card({blog}){
+    const isVideo = blog.imageUrl && /\.(mp4|webm|ogg|mov)$/i.test(blog.imageUrl)
+
     return (
         <>
        
@@ -17,12 +19,27 @@ function Card({blog}){
       }}
     >
    
-       <img src={blog.imageUrl} 
-        style={{
-          width: "100%",
-          height: "500px",
-          objectFit: "cover"
-        }}/>
+       {isVideo ? (
+        <video
+          src={blog.imageUrl}
+          controls
+          style={{
+            width: "100%",
+            height: "500px",
+            objectFit: "cover"
+          }}
+        />
+       ) : (
+        <img
+          src={blog.imageUrl}
+          alt={blog.title}
+          style={{
+            width: "100%",
+            height: "500px",
+            objectFit: "cover"
+          }}
+        />
+       )}
 
       {/* Content */}
       <div style={{ padding: "15px" }}>

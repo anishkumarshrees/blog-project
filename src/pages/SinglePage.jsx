@@ -9,6 +9,7 @@ function SignlePage(){
 const {id}=useParams()
 const [blog,setblog]=useState({})
 const navigate= useNavigate()
+const isVideo = blog.imageUrl && /\.(mp4|webm|ogg|mov)$/i.test(blog.imageUrl)
 const fetchSingleBlog=async ()=>{
  const response =  await axios.get(`http://localhost:3000/blog/${id}`)
  setblog(response.data.data)
@@ -35,12 +36,27 @@ const fetchSingleBlog=async ()=>{
         <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
                 <div >
-                    <img src={blog.imageUrl} alt={blog.title}
-        style={{
-          width: "100%",
-          height: "200px",
-          objectFit: "cover"
-        }}/>
+                    {isVideo ? (
+                        <video
+                            src={blog.imageUrl}
+                            controls
+                            style={{
+                                width: "100%",
+                                height: "200px",
+                                objectFit: "cover"
+                            }}
+                        />
+                    ) : (
+                        <img
+                            src={blog.imageUrl}
+                            alt={blog.title}
+                            style={{
+                                width: "100%",
+                                height: "200px",
+                                objectFit: "cover"
+                            }}
+                        />
+                    )}
                 </div>
                 <div className="flex -mx-2 mb-4">
                     <div className="w-1/2 px-2">
