@@ -71,13 +71,13 @@ const fetchSingleBlog=async ()=>{
                 </div>
             </div>
             <div className="md:flex-1 px-4">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{blog.title}</h2>
+                <h2 name="title" className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{blog.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                     {blog.subtitle}
                 </p>
-                 <p className="bg-white-600 text-red-600 dark:text-red-300 text-sm mb-4">
-                    {blog.description}
-                </p>
+                 <p style={{ color: "red", fontSize: "20px" }}>
+  {blog.description}
+</p>
                
                 
                 

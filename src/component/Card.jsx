@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 
 function Card({blog}){
     const isVideo = blog.imageUrl && /\.(mp4|webm|ogg|mov)$/i.test(blog.imageUrl)
+    console.log(blog)
 
     return (
         <>

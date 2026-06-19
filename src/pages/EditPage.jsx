@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "../component/Navbar"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
@@ -8,10 +8,7 @@ function EditPage(){
     const navigate=useNavigate()
    const{id}= useParams()
     const [data,setdata]=useState({
-        title:"",
-        subtitle:"",
-        description:"",
-        image:""
+       
     })
     const handleChange=(e)=>{
         const name=e.target.name 
@@ -36,6 +33,23 @@ function EditPage(){
         alert('somoething went wrong')
      }
     }
+    
+    const fetchSingleBlog=async ()=>{
+ const response =  await axios.get(`http://localhost:3000/blog/${id}`)
+ if(response.status==200){
+setdata(response.data.data)
+
+ }
+ else{
+    alert("something went wrong")
+ }
+ setdata(response.data.data)
+}
+
+    useEffect(()=>{
+        fetchSingleBlog()
+
+    },[])
 
     return(
         <>
@@ -51,20 +65,20 @@ function EditPage(){
                 <label className="block text-gray-700 font-semibold mb-2">Title</label>
                 <input type="text" id="title" name="title" required
                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       placeholder="Enter blog title" onChange={handleChange}/>
+                       placeholder="Enter blog title" onChange={handleChange} value={data.title} />
             </div>
             {/* <!-- Title --> */}
             <div className="mb-4">
                 <label className="block text-gray-700 font-semibold mb-2">Sub Title</label>
                 <input type="text" id="subtitle" name="subtitle" required
                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       placeholder="Enter blog title" onChange={handleChange}/>
+                       placeholder="Enter blog title" onChange={handleChange} value={data.subtitle}/>
             </div>
             {/* Image */}
             <div className="mb-4">
                
 <label className="block mb-2.5 text-sm font-medium text-heading" >Upload Image</label>
-<input className="cursor-pointer bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body" id="file_input" type="file" name="image" onChange={handleChange}/>
+<input className="cursor-pointer bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full shadow-xs placeholder:text-body" id="file_input" type="file" name="image" onChange={handleChange} />
 
             </div>
 
@@ -73,14 +87,14 @@ function EditPage(){
                 <label  className="block text-gray-700 font-semibold mb-2">Description</label>
                 <textarea id="description" name="description" required 
                           className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          placeholder="Write your blog content here" onChange={handleChange} ></textarea>
+                          placeholder="Write your blog content here" onChange={handleChange} value={data.description}/>
             </div>
             
 
             {/* <!-- Submit Button --> */}
             <div className="text-center">
-                <button type="submit"
-                        className="bg-blue-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-700 transition" >
+                <button  type="submit"
+                        className="bg-blue-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-700 transition cursor-pointer"  >
                     Edit Post
                 </button>
             </div>
