@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 
 import Navbar from "../component/Navbar"
 import axios from "axios"
-import Card from "../component/card"
+import Card from "../component/Card"
+
 
 
 
