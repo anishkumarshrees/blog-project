@@ -12,7 +12,7 @@ const [blog,setblog]=useState({})
 const navigate= useNavigate()
 const isVideo = blog.imageUrl && /\.(mp4|webm|ogg|mov)$/i.test(blog.imageUrl)
 const fetchSingleBlog=async ()=>{
- const response =  await axios.get(`https://full-stack-esqu.onrender.com/${id}`)
+ const response =  await axios.get(`https://full-stack-esqu.onrender.com/blog/${id}`)
  setblog(response.data.data)
 }
 
@@ -20,12 +20,17 @@ const fetchSingleBlog=async ()=>{
         fetchSingleBlog()
 
     },[])
-    const deleteFunction=async ()=>{
-     const response= await  axios.delete("https://full-stack-esqu.onrender.com/"+id)
+    const deleteFunction= async ()=>{
+     try {
+     const response= await  axios.delete("https://full-stack-esqu.onrender.com/blog/"+id)
      console.log(response.status)
-     if(response.status == 200){
+     if(response.status === 200){
         navigate("/")
      }else{
+        alert("something went wrong")
+     }
+     } catch (error) {
+        console.error(error)
         alert("something went wrong")
      }
     }
