@@ -12,7 +12,7 @@ const [blog,setblog]=useState({})
 const navigate= useNavigate()
 const isVideo = blog.imageUrl && /\.(mp4|webm|ogg|mov)$/i.test(blog.imageUrl)
 const fetchSingleBlog=async ()=>{
- const response =  await axios.get(`http://localhost:3000/blog/${id}`)
+ const response =  await axios.get(`https://full-stack-esqu.onrender.com/${id}`)
  setblog(response.data.data)
 }
 
@@ -21,7 +21,7 @@ const fetchSingleBlog=async ()=>{
 
     },[])
     const deleteFunction=async ()=>{
-     const response= await  axios.delete("http://localhost:3000/blog/"+id)
+     const response= await  axios.delete("https://full-stack-esqu.onrender.comg/"+id)
      console.log(response.status)
      if(response.status == 200){
         navigate("/")

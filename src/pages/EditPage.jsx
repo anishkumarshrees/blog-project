@@ -21,7 +21,7 @@ function EditPage(){
     }
     const editBlog=async(e)=>{
          e.preventDefault()
-     const response= await  axios.patch("http://localhost:3000/blog/" +id,data,{
+     const response= await  axios.patch("https://full-stack-esqu.onrender.com/blog/" +id,data,{
             headers:{
                 "Content-Type":"multipart/form-data"
             }
@@ -35,7 +35,7 @@ function EditPage(){
     }
     
     const fetchSingleBlog=async ()=>{
- const response =  await axios.get(`http://localhost:3000/blog/${id}`)
+ const response =  await axios.get(`https://full-stack-esqu.onrender.com/blog/${id}`)
  if(response.status==200){
 setdata(response.data.data)
 

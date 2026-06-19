@@ -8,7 +8,7 @@ import axios from "axios"
 function Home(){
     const [blogs,setblogs]=useState([])
     const fetchBlogs= async ()=>{
-     const response =  await axios.get("http://localhost:3000/blog")
+     const response =  await axios.get("https://full-stack-esqu.onrender.com/blog")
      setblogs(response.data.data)
     
     }
