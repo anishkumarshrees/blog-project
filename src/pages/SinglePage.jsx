@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import Navbar from "../component/Navbar"
 import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
+
 
 
 
@@ -60,7 +61,9 @@ const fetchSingleBlog=async ()=>{
                 </div>
                 <div className="flex -mx-2 mb-4">
                     <div className="w-1/2 px-2">
-                        <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Edit</button>
+                    <Link to={`/edit/${blog._id}`}>
+                        <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700 cursor-pointer">Edit</button>
+                        </Link>
                     </div>
                     <div className="w-1/2 px-2">
                         <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600" onClick={deleteFunction}>Delete</button>
@@ -72,13 +75,16 @@ const fetchSingleBlog=async ()=>{
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                     {blog.subtitle}
                 </p>
+                 <p className="bg-white-600 text-red-600 dark:text-red-300 text-sm mb-4">
+                    {blog.description}
+                </p>
                
                 
                 
-                <div>
-                    <span className="font-bold text-gray-700 dark:text-gray-300">{blog.description}</span>
+                
+                    
                   
-                </div>
+                
             </div>
         </div>
     </div>
