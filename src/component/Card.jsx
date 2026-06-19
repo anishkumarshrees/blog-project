@@ -98,3 +98,4 @@ function Card({blog}){
 }
 
 export default Card
+

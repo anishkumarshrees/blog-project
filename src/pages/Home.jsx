@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import Card from "../component/card"
+
 import Navbar from "../component/Navbar"
 import axios from "axios"
+import Card from "../component/card"
 
 
 
@@ -19,12 +20,13 @@ function Home(){
     return(
         <>
         <Navbar />
-        <div className="flex flex-wrap gap-5">
+           <div className="flex flex-wrap">
             {
-                //loops array matra launa painxa
-               blogs.map((blog) => (
-    <Card key={blog._id} blog={blog} />
-))
+                blogs.map(function(blog){
+                    return(
+                        <Card blog={blog} />
+                    )
+                })
             }
        
        
