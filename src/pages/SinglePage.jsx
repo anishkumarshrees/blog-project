@@ -21,7 +21,7 @@ const fetchSingleBlog=async ()=>{
 
     },[])
     const deleteFunction=async ()=>{
-     const response= await  axios.delete("https://full-stack-esqu.onrender.comg/"+id)
+     const response= await  axios.delete("https://full-stack-esqu.onrender.com/"+id)
      console.log(response.status)
      if(response.status == 200){
         navigate("/")
@@ -66,7 +66,7 @@ const fetchSingleBlog=async ()=>{
                         </Link>
                     </div>
                     <div className="w-1/2 px-2">
-                        <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600" onClick={deleteFunction}>Delete</button>
+                        <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer" onClick={deleteFunction}>Delete</button>
                     </div>
                 </div>
             </div>
